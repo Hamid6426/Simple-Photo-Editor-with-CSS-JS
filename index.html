@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="webpage">
+        <div class="fullpage">
+            <h1 class="heading">Update CSS Variable with <span>JS</span></h1>
+            <div class="controls">
+                
+                <label for="spacing">Spacing:</label>
+                <input name="spacing" type="range" min="5" max="50" value="5" data-sizing="px">
+
+                <label for="border-radius">Border Radius:</label>
+                <input name="border-radius" type="range" min="5" max="100" value="5" data-sizing="px">
+                
+                <label for="blur">Blur:</label>
+                <input name="blur" type="range" min="0" max="25" value="0" data-sizing="px">
+
+                <label for="base">Base Color:</label>
+                <input name="base-color" type="color" value="#ff0">
+
+                <img src="https://github.com/Hamid6426/Javascript-Drum-Kit/blob/main/img/Concert%201440%20x%20648.png?raw=true" alt="concert">
+            </div>
+        </div>
+    </div>
+
+<script>
+
+const inputs = document.querySelectorAll(".controls input");
+
+function handleUpdate(){
+ const suffix = this.dataset.sizing || '';
+ document.documentElement.style.setProperty(`--${this.name}`, this.value  + suffix);
+}
+
+inputs.forEach(input => input.addEventListener('change', handleUpdate));
+inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+
+</script>
+
+
+</body>
+</html>
